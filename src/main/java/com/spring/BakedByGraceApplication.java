@@ -36,5 +36,10 @@ public class BakedByGraceApplication {
       resolver.setSuffix(".jsp");
       return resolver;
    }
+   
+//   @Bean
+//   public PasswordEncoder passwordEncoder() {
+//	   return new BCryptPasswordEncoder();
+//   }
 
 }
