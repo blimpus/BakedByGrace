@@ -17,9 +17,10 @@ import com.spring.service.OrderService;
 //@RequestMapping("/")
 public class MainController {
 	
-	/*
-	 * @Autowired private OrderService orderService;
-	 */
+	
+	  @Autowired 
+	  private OrderService orderService;
+	 
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String index() {
@@ -43,7 +44,7 @@ public class MainController {
 	public String saveOrder(@ModelAttribute("order")Order order, BindingResult result) {
 		System.out.println("name set to: " + order.getName());
 		
-		
+		orderService.save(order);
 		
 		return "index";
 	}
