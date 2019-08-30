@@ -10,5 +10,5 @@ import com.spring.auth.model.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
-		List<User> findByUsernameAndPassword(String username, String password);
+		List<User> findByUsername(String username);
 }

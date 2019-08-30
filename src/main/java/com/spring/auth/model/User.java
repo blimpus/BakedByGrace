@@ -15,6 +15,16 @@ public class User {
 	@Column(name = "GOAL_ID")
 	private Long userId;
 	
+	private Boolean enabled;
+	
+	public Boolean getEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(Boolean enabled) {
+		this.enabled = enabled;
+	}
+
 	private String username;
 
 	private String password;

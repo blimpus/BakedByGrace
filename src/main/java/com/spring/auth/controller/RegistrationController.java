@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.spring.auth.model.Role;
 import com.spring.auth.model.User;
 import com.spring.auth.service.UserService;
 
@@ -27,6 +28,7 @@ public class RegistrationController {
 			user = new User();
 			
 		}
+		user.setEnabled(true);
 		
 		model.addAttribute("user", user);
 		return "register";
@@ -36,7 +38,10 @@ public class RegistrationController {
 	public String addUser(@ModelAttribute("user")User user,BindingResult result) {
 		System.out.println("name set to: " + user.getUsername());
 		
-		userService.save(user);
+		Role role = new Role();
+		role.setUsername(user.getUsername());
+		role.setRole("ROLE_ADMIN");
+		userService.save(user,role);
 		
 		return "index";
 	}

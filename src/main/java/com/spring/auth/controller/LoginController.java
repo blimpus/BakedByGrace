@@ -23,12 +23,13 @@ public class LoginController {
 		@RequestMapping(value = "/login", method = RequestMethod.GET)
 		public String showLogin(HttpSession session, Model model) {
 			Login login = new Login();
-//			User user = (User)session.getAttribute("user");
-//			if(user ==null) {
-//				user = new User();
-//				
-//			}
-//			
+			User user = (User)session.getAttribute("user");
+			if(user ==null) {
+				user = new User();
+				
+			}
+			
+			model.addAttribute("user",user);
 			model.addAttribute("login", login);
 			return "login";
 		}
@@ -40,7 +41,8 @@ public class LoginController {
 			if (user != null) {
 				return "index";
 			} else {
-				return "register";
+				System.out.println("NO USERS FOUND FOR THIS PERSON OR PASSWORD IS INCORRECT");
+				return "redirect:register";
 			}
 		}
 }
