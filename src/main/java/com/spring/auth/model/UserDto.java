@@ -3,6 +3,10 @@ package com.spring.auth.model;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+import com.spring.auth.validator.PasswordMatches;
+import com.spring.auth.validator.ValidEmail;
+
+@PasswordMatches
 public class UserDto {
 
     @NotNull
@@ -21,6 +25,7 @@ public class UserDto {
 
 	@NotNull
     @NotEmpty
+    @ValidEmail
     private String email;
 
 	public String getEmail() {

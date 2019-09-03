@@ -7,8 +7,10 @@ import org.springframework.stereotype.Repository;
 
 import com.spring.auth.model.User;
 
+
 @Repository
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface UserJpaRepository extends JpaRepository<User, Long> {
 
 		List<User> findByUsername(String username);
+		User findByEmail(String email);
 }

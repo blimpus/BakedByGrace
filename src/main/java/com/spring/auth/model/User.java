@@ -1,5 +1,6 @@
 package com.spring.auth.model;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -38,6 +39,9 @@ public class User {
 	private String address;
 
 	private int phone;
+	
+	private String role;
+
 
 	public String getAddress() {
 		return address;
@@ -94,4 +98,16 @@ public class User {
 	public void setUsername(String username) {
 		this.username = username;
 	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+
+
+
 }
