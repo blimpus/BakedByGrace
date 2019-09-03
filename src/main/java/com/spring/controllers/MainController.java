@@ -10,8 +10,10 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.spring.auth.model.UserDto;
 import com.spring.model.Order;
 import com.spring.service.OrderService;
 
@@ -25,27 +27,6 @@ public class MainController {
 	 
 	
 	  
-	@RequestMapping(value = { "/", "/welcome**" }, method = RequestMethod.GET)
-	public ModelAndView defaultPage() {
-
-	  ModelAndView model = new ModelAndView();
-	  model.addObject("title", "Spring Security Login Form - Database Authentication");
-	  model.addObject("message", "This is default page!");
-	  model.setViewName("hello");
-	  return model;
-
-	}
-	
-	@RequestMapping(value = "/admin**", method = RequestMethod.GET)
-	public ModelAndView adminPage() {
-
-	  ModelAndView model = new ModelAndView();
-	  model.addObject("title", "Spring Security Login Form - Database Authentication");
-	  model.addObject("message", "This page is for ROLE_ADMIN only!");
-	  model.setViewName("admin");
-	  return model;
-
-	}
 		
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String index() {
