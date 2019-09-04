@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.spring.auth.model.Role;
 import com.spring.auth.model.User;
 import com.spring.auth.model.UserDto;
 import com.spring.auth.service.EmailExistsException;
@@ -48,13 +47,12 @@ public class RegistrationController {
 		
 		Date date = new Date();
 		user.setDateCreated(date);
-		Role role = new Role();
-		role.setUsername(user.getUsername());
-		role.setRole("ROLE_ADMIN");
-		userService.save(user,role);
+		userService.save(user);
 		
 		return "index";
 	}
+	
+	/* FIND A WAY TO USE THIS FOR REGISTRATION PROCESS */
 	
 	@RequestMapping(value = "/user/registration" , method = RequestMethod.GET)
 	public String showRegistrationForm(WebRequest request, Model model) {

@@ -2,7 +2,7 @@ package com.spring;
 
 import java.util.Arrays;
 
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,14 +10,10 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
-import org.springframework.web.servlet.view.JstlView;
 
-import com.spring.auth.service.UserService;
+
+
 
 @SpringBootApplication
 @Import({SecurityConfig.class})
@@ -49,11 +45,6 @@ public class BakedByGraceApplication {
       return resolver;
    }
 
-   
-//   @Bean
-//   public PasswordEncoder passwordEncoder() {
-//	   return new BCryptPasswordEncoder();
-//   }
    
 
 	@Bean(name = "dataSource")
