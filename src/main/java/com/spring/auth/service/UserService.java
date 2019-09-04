@@ -31,7 +31,6 @@ public class UserService implements IUserService{
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		userRepository.save(user);
 		roleRepository.save(role);
-		// TODO Auto-generated method stub
 		
 	}
 	
@@ -50,6 +49,7 @@ public class UserService implements IUserService{
 		}
 		
 	}
+	
 	@Override
 	@Transactional
 	public User registerNewUserAccount(UserDto accountDto)throws EmailExistsException {
@@ -60,11 +60,8 @@ public class UserService implements IUserService{
 	        
 	        User user = new User();
 	        user.setEmail(accountDto.getEmail());
-	        user.setLastname(accountDto.getLastName());
-	        user.setFirstname(accountDto.getFirstName());
 	        user.setPassword(accountDto.getPassword());
 	        user.setUsername(accountDto.getEmail());
-	        user.setRole("ROLE_USER");
 	        
 	        return userRepository.save(user);
 				

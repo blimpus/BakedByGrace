@@ -50,10 +50,10 @@ public class BakedByGraceApplication {
    }
 
    
-   @Bean
-   public PasswordEncoder passwordEncoder() {
-	   return new BCryptPasswordEncoder();
-   }
+//   @Bean
+//   public PasswordEncoder passwordEncoder() {
+//	   return new BCryptPasswordEncoder();
+//   }
    
 
 	@Bean(name = "dataSource")

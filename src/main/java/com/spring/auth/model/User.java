@@ -1,62 +1,83 @@
 package com.spring.auth.model;
 
+import java.io.Serializable;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "users")
-public class User {
+public class User implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue
-	@Column(name = "GOAL_ID")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "user_id")
 	private Long userId;
-	
+
 	private Boolean enabled;
-	
-	public Boolean getEnabled() {
-		return enabled;
-	}
 
-	public void setEnabled(Boolean enabled) {
-		this.enabled = enabled;
-	}
-
+	@NotEmpty
+	@Column(nullable = false, unique = true)
 	private String username;
 
+	@NotEmpty
 	private String password;
-
-	private String firstname;
-
-	private String lastname;
 
 	private String email;
 
-	private String address;
-
 	private int phone;
-	
-	private String role;
 
+	private Date dateCreated;
 
-	public String getAddress() {
-		return address;
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinTable(name = "user_authority",
+
+			joinColumns = { @JoinColumn(name = "user_id") },
+
+			inverseJoinColumns = { @JoinColumn(name = "authority_id") })
+
+	private Set<Authority> authorities = new HashSet<>();
+
+	public Set<Authority> getAuthorities() {
+		return authorities;
+	}
+
+	public Date getDateCreated() {
+		return dateCreated;
 	}
 
 	public String getEmail() {
 		return email;
 	}
 
-	public String getFirstname() {
-		return firstname;
+	public Long getUserId() {
+		return userId;
 	}
 
-	public String getLastname() {
-		return lastname;
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
+
+	public Boolean getEnabled() {
+		return enabled;
 	}
 
 	public String getPassword() {
@@ -71,20 +92,20 @@ public class User {
 		return username;
 	}
 
-	public void setAddress(String address) {
-		this.address = address;
+	public void setAuthorities(Set<Authority> authorities) {
+		this.authorities = authorities;
+	}
+
+	public void setDateCreated(Date dateCreated) {
+		this.dateCreated = dateCreated;
 	}
 
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
-	}
-
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
+	public void setEnabled(Boolean enabled) {
+		this.enabled = enabled;
 	}
 
 	public void setPassword(String password) {
@@ -98,16 +119,5 @@ public class User {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-
-	public String getRole() {
-		return role;
-	}
-
-	public void setRole(String role) {
-		this.role = role;
-	}
-
-
-
 
 }

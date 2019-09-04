@@ -1,5 +1,7 @@
 package com.spring.auth.controller;
 
+import java.util.Date;
+
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -44,6 +46,8 @@ public class RegistrationController {
 	public String addUser(@ModelAttribute("user")User user,BindingResult result) {
 		System.out.println("name set to: " + user.getUsername());
 		
+		Date date = new Date();
+		user.setDateCreated(date);
 		Role role = new Role();
 		role.setUsername(user.getUsername());
 		role.setRole("ROLE_ADMIN");
@@ -76,7 +80,6 @@ public class RegistrationController {
 	        return new ModelAndView("index", "user", accountDto);
 	    }
 		
-		//return "index";
 	}
 	
 	private User createUserAccount(UserDto accountDto, BindingResult result) {
