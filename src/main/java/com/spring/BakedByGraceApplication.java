@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
+import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
@@ -56,5 +57,15 @@ public class BakedByGraceApplication {
 	    driverManagerDataSource.setPassword("password");
 	    return driverManagerDataSource;
 	}
+	
+	@Bean
+    public ResourceBundleMessageSource messageSource() {
+
+        var source = new ResourceBundleMessageSource();
+        source.setBasenames("messages/label");
+        source.setUseCodeAsDefaultMessage(true);
+
+        return source;
+    }
 
 }
