@@ -42,15 +42,21 @@ public class RegistrationController {
 	}
 	
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String addUser(@ModelAttribute("user")User user,BindingResult result) {
+	public ModelAndView addUser(@ModelAttribute("user")User user,BindingResult result,ModelAndView modelAndView) {
 		System.out.println("name set to: " + user.getUsername());
-		
-		
+		final Boolean flag = userService.emailExist(user.getEmail());
+		if(flag) {
+			result.rejectValue("email","message.regError");
+		} else {
 		Date date = new Date();
 		user.setDateCreated(date);
 		userService.save(user);
 		
-		return "index";
+		modelAndView.setViewName("index");
+		}
+		return modelAndView;
+		//return "index";
+		
 	}
 	
 	/* FIND A WAY TO USE THIS FOR REGISTRATION PROCESS */
@@ -90,4 +96,5 @@ public class RegistrationController {
 		}
 		return registered;
 	}
+	
 }

@@ -73,13 +73,14 @@ public class UserService implements IUserService{
 				
 	}
 
-	private boolean emailExist(String email) {
+	public boolean emailExist(String email) {
 		User user = userRepository.findByEmailIgnoreCase(email);
         if (user != null) {
             return true;
         }
         return false;
     }
+
 
 
 }
