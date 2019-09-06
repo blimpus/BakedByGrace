@@ -8,5 +8,8 @@
 </head>
 <body>
 <h1>WELCOME TO BAKED BY GRACE</h1>
+<a href="/BakedByGrace/login">Login Here</a>
+<br />
+<a href="/BakedByGrace/register">register to be a user here</a>
 </body>
 </html>

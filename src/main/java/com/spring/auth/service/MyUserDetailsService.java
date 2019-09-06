@@ -3,6 +3,7 @@ package com.spring.auth.service;
 import java.util.List;
 
 import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -13,7 +14,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.spring.auth.model.PdfUserDetails;
 import com.spring.auth.model.User;
 import com.spring.auth.repository.UserJpaRepository;
-import org.slf4j.*;
 
 @Service
 @Transactional

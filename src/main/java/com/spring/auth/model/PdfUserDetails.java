@@ -23,8 +23,12 @@ public class PdfUserDetails implements UserDetails {
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-
-		return user.getAuthorities().stream()
+//
+//		return user.getAuthorities().stream()
+//				.map(authority -> new SimpleGrantedAuthority(authority.getName().toString()))
+//				.collect(Collectors.toList());
+		
+		return user.getRoles().stream()
 				.map(authority -> new SimpleGrantedAuthority(authority.getName().toString()))
 				.collect(Collectors.toList());
 

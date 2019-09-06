@@ -26,7 +26,24 @@
 	          Enter Password:
 	    </label>
         <form:input path="password" />
+        <label for="textinput3">
+	          Enter Email:
+	    </label>
+        <form:input path="email" />
+        <label for="textinput4">
+	          Enter Phone:
+	    </label>
+        <form:input path="phone" />
+        <label for="textinput5">
+	          Enter First Name:
+	    </label>
+        <form:input path="firstName" />
+        <label for="textinput6">
+	          Enter Last Name:
+	    </label>
+        <form:input path="lastName" />
         <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+        <a href ="/BakedByGrace/">Return to Home Page</a>
     </form:form>
 </body>
 </html>

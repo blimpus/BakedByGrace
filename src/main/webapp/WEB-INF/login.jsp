@@ -18,7 +18,7 @@
 <!-- Latest compiled JavaScript -->
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-<title>Registration Page</title>
+<title>Login Page</title>
 </head>
 <body>
 <!-- 	<h1>THIS IS WHERE NEW USERS REGISTER</h1> -->
@@ -69,7 +69,7 @@
 				</div>
 
 				<input class="btn" type="submit" value="Login">
-
+				<a href ="/BakedByGrace/register">Register to be a user here</a>
 			</fieldset>
 
 		</form>

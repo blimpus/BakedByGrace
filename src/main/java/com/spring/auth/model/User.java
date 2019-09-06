@@ -1,6 +1,7 @@
 package com.spring.auth.model;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -46,6 +47,10 @@ public class User implements Serializable{
 	private int phone;
 
 	private Date dateCreated;
+	
+	private String firstName;
+	
+	private String lastName;
 
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(name = "user_authority",
@@ -58,6 +63,23 @@ public class User implements Serializable{
 
 	public Set<Authority> getAuthorities() {
 		return authorities;
+	}
+	
+	@ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable( 
+        name = "users_roles", 
+        joinColumns = @JoinColumn(
+          name = "user_id", referencedColumnName = "user_id"), 
+        inverseJoinColumns = @JoinColumn(
+          name = "role_id", referencedColumnName = "id")) 
+    private Collection<Role> roles;
+
+	public Collection<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(Collection<Role> roles) {
+		this.roles = roles;
 	}
 
 	public Date getDateCreated() {
@@ -118,6 +140,30 @@ public class User implements Serializable{
 
 	public void setUsername(String username) {
 		this.username = username;
+	}
+
+
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+
+
+	public String getLastName() {
+		return lastName;
+	}
+
+
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
 }

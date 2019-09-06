@@ -76,7 +76,7 @@ public class LoginController {
 
 	        session.setAttribute("userId", loggedInUser.getUserId());
 
-	        return "redirect:index";
+	        return "redirect:register";
 
 	    }
 
