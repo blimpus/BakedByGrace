@@ -39,6 +39,8 @@ public class MainController {
 			
 		}
 		
+		System.out.println(session.getAttribute("userId"));
+		
 		model.addAttribute("order", order);
 		return "orderForm";
 	}
