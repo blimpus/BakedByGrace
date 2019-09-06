@@ -9,11 +9,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.spring.auth.model.Authority;
 import com.spring.auth.model.Role;
 import com.spring.auth.model.User;
 import com.spring.auth.model.UserDto;
-import com.spring.auth.repository.AuthorityJpaRepository;
 import com.spring.auth.repository.RoleJpaRepository;
 import com.spring.auth.repository.UserJpaRepository;
 
@@ -23,8 +21,6 @@ public class UserService implements IUserService{
 	@Autowired
 	private UserJpaRepository userRepository;
 	
-	@Autowired
-	private AuthorityJpaRepository authorityRepository;
 	
 	@Autowired
 	private PasswordEncoder passwordEncoder;
@@ -33,9 +29,8 @@ public class UserService implements IUserService{
 	private RoleJpaRepository roleRepository;
 	
 
-	public void save(User user, Authority auth) {
+	public void save(User user) {
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
-		authorityRepository.save(auth);
 		createRoleIfNotFound("ROLE_USER");
 		
 		Role userRole = roleRepository.findByName("ROLE_USER");
@@ -79,7 +74,7 @@ public class UserService implements IUserService{
 	}
 
 	private boolean emailExist(String email) {
-		User user = userRepository.findByEmail(email);
+		User user = userRepository.findByEmailIgnoreCase(email);
         if (user != null) {
             return true;
         }

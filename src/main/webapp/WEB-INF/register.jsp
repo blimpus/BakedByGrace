@@ -9,6 +9,7 @@
 <title>Registration Page</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 		<link href="styles/restaurantStyles.css" rel="stylesheet" type="text/css" />
+		<link href="https://fonts.googleapis.com/css?family=Great+Vibes&display=swap" rel="stylesheet"> 
 		
 		<style>
 			nav {
@@ -121,11 +122,15 @@
 			    margin-top: 0;
 			  }
 			}
+			
+			.cursive {
+				font-family: 'Great Vibes', cursive;
+			}
 		</style>
 </head>
 <body>
 <header class="jumbotron" style="background-color: #eb6c6c; margin-bottom: auto;">
-           <h1 style="text-align: left;">Baked By Grace</h1>
+           <h1 class="cursive" style="text-align: left;">Baked By Grace</h1>
 		<h2 style="text-align: right;">Sweet Treats For Prices That Nobody Beats</h2>
 	<!-- alerts using not using JS that it is built with it -->
 	<p id="js_disabled_message">Site Best used with JavaScript</p>

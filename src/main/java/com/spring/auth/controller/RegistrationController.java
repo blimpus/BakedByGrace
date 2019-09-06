@@ -16,8 +16,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.spring.auth.model.Authority;
-import com.spring.auth.model.AuthorityType;
 import com.spring.auth.model.User;
 import com.spring.auth.model.UserDto;
 import com.spring.auth.service.EmailExistsException;
@@ -46,13 +44,11 @@ public class RegistrationController {
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String addUser(@ModelAttribute("user")User user,BindingResult result) {
 		System.out.println("name set to: " + user.getUsername());
-		AuthorityType authorityType = AuthorityType.ROLE_USER;
 		
-		Authority authority = new Authority(authorityType);
 		
 		Date date = new Date();
 		user.setDateCreated(date);
-		userService.save(user,authority);
+		userService.save(user);
 		
 		return "index";
 	}

@@ -22,7 +22,7 @@
 
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 		<link href="styles/restaurantStyles.css" rel="stylesheet" type="text/css" />
-		
+		<link href="https://fonts.googleapis.com/css?family=Great+Vibes&display=swap" rel="stylesheet"> 
 		<style>
 			nav {
 				border-top: thin #5b7d87 solid;
@@ -41,12 +41,29 @@
 			#wrapper {
 				background-color: #dad4d3;
 			}
+			
+			@media (min-width: 768px) {
+			    .container-small {
+			        width: 300px;
+			    }
+			    .container-large {
+			        width: 970px;
+			    } 
+			}
+			.panel-body {
+			  /* height: 480px; */
+			  height: calc(100vh - 200px);
+			  overflow-y: auto; 
+			}
+			.cursive {
+				font-family: 'Great Vibes', cursive;
+			}
 		</style>
 </head>
 <body>
 
 	<header class="jumbotron" style="background-color: #eb6c6c; margin-bottom: auto;">
-           <h1 style="text-align: left;">Baked By Grace</h1>
+           <h1 class="cursive" style="text-align: left;">Baked By Grace</h1>
 		<h2 style="text-align: right;">Sweet Treats For Prices That Nobody Beats</h2>
 	<!-- alerts using not using JS that it is built with it -->
 	<p id="js_disabled_message">Site Best used with JavaScript</p>
@@ -56,53 +73,52 @@
      </header>
      
      <nav>
-		<a class="btn" href="/BakedByGrace/login">Login</a>
+		<a class="btn" href="/BakedByGrace/">Home</a>
 		<a class="btn" href="/BakedByGrace/register">Register</a>
 		<a class="btn" href="/BakedByGrace/order">Create An Order</a>
       </nav>
 
-
-	<div class="panel-body">
-
-		<form action="doLogin" method="post">
-
-			<fieldset>
-
-				<legend>Please sign in</legend>
-
-				<c:if test="${not empty error}">
-
-					<div class="alert alert-danger">
-
-						<spring:message
-							code="AbstractUserDetailsAuthenticationProvider.badCredentials" />
-
-						<br />
-
+		<div class="panel-body center">
+	
+			<form action="doLogin" method="post">
+	
+				<fieldset>
+	
+					<legend>Please sign in</legend>
+	
+					<c:if test="${not empty error}">
+	
+						<div class="alert alert-danger">
+	
+							<spring:message
+								code="AbstractUserDetailsAuthenticationProvider.badCredentials" />
+	
+							<br />
+	
+						</div>
+	
+					</c:if>
+	
+					<div class="form-group">
+	
+						<input class="form:input-large" placeholder="User Name"
+							name='username' type="text">
+	
 					</div>
-
-				</c:if>
-
-				<div class="form-group">
-
-					<input class="form:input-large" placeholder="User Name"
-						name='username' type="text">
-
-				</div>
-
-				<div class="form-group">
-
-					<input class=" form:input-large" placeholder="Password"
-						name='password' type="password" value="">
-
-				</div>
-
-				<input class="btn" type="submit" value="Login">
-				<a href ="/BakedByGrace/register">Register to be a user here</a>
-			</fieldset>
-
-		</form>
-
-	</div>
+	
+					<div class="form-group">
+	
+						<input class=" form:input-large" placeholder="Password"
+							name='password' type="password" value="">
+	
+					</div>
+	
+					<input class="btn" type="submit" value="Login">
+					<a href ="/BakedByGrace/register">Register to be a user here</a>
+				</fieldset>
+	
+			</form>
+	
+		</div>
 </body>
 </html>

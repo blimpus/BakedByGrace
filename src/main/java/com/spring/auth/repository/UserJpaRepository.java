@@ -12,5 +12,5 @@ import com.spring.auth.model.User;
 public interface UserJpaRepository extends JpaRepository<User, Long> {
 
 		List<User> findByUsername(String username);
-		User findByEmail(String email);
+		User findByEmailIgnoreCase(String email);
 }
