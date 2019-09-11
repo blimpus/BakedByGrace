@@ -16,7 +16,7 @@ public class Order {
 	private String name;
 	private String email;
 	private String phone;
-
+	
 	public String getEmail() {
 		return email;
 	}

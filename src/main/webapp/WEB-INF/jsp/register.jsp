@@ -7,7 +7,7 @@
 <meta charset="ISO-8859-1">
 
 <title>Registration Page</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 		<link href="styles/restaurantStyles.css" rel="stylesheet" type="text/css" />
 		<link href="https://fonts.googleapis.com/css?family=Great+Vibes&display=swap" rel="stylesheet"> 
 		
@@ -152,7 +152,7 @@
 	    	<div class="row">
 	    		<div class="col-25">
 				<label for="textinput1">
-			          Enter username:
+			          Enter Username:
 			    </label>
 			    </div>
 			    <div class="col-75">
@@ -213,9 +213,6 @@
 	        <a href ="/BakedByGrace/">Return to Home Page</a>
 	    </form:form>
     </div>
-    
-	     <!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 	
 	<!-- jQuery library -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

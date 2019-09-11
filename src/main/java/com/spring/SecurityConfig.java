@@ -61,7 +61,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 		http
 
-				.authorizeRequests().antMatchers("/wallPage").hasAnyRole("ADMIN", "USER")
+				.authorizeRequests().antMatchers("/order").hasAnyRole("ADMIN", "USER")
 
 				.and()
 
